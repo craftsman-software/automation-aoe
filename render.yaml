@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: slackbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: SLACK_BOT_TOKEN
+        sync: false # Renderのダッシュボードで手動入力する
+      - key: SLACK_SIGNING_SECRET
+        sync: false # 同上
+    plan: free
+    autoDeploy: true
